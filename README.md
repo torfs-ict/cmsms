@@ -83,3 +83,5 @@ _Note: if you generated the module with our script, you can skip steps 1 & 2._
 1. Use the Composer `create-project` command as when setting up the development environment.
 2. Make sure the webroot of points to the `cms` directory.
 3. Run `composer require` for each module you need.
+4. Navigate your browser to the install directory and complete the CMS Made Simple installation.
+5. Remove the install directory.
