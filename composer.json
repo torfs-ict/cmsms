@@ -21,7 +21,8 @@
         "torfs-ict/cmsms-entity-manager": "dev-master"
     },
     "require-dev": {
-        "composer/composer": "^1.2"
+        "composer/composer": "^1.2",
+        "composer/semver": "^1.4"
     },
     "autoload": {
         "psr-4": { "CMSMS\\" : "src/" }
