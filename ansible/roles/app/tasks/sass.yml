@@ -1,0 +1,13 @@
+---
+- name: Install Ruby
+  apt:
+    pkg:
+      - ruby
+    state: installed
+    update_cache: yes
+
+- name: Install sass & scss
+  shell: "gem install {{ item }}"
+  with_items:
+    - sass
+    - scss

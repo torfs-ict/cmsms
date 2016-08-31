@@ -1,0 +1,9 @@
+---
+# application tasks to be customized and to run after the main provision
+
+- include: tasks/nodejs.yml
+- include: tasks/sass.yml
+- include: tasks/dependencies.yml
+- include: tasks/xdebug.yml
+- include: tasks/phpmyadmin.yml
+- include: tasks/php.yml

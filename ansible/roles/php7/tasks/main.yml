@@ -1,0 +1,20 @@
+---
+- name: Add ppa Repository
+  apt_repository: repo=ppa:ondrej/php
+
+- name: Update apt
+  apt: update_cache=yes
+
+- name: Install PHP
+  apt: pkg={{item}} state=latest
+  with_items:
+    - php7.0
+    - php7.0-cli
+    - php7.0-fpm
+
+- name: Install PHP extensions
+  apt: pkg={{ item }} state=latest
+  with_items: "{{ php7.extensions }}"
+  when: php7.extensions is defined
+
+- include: pecl.yml

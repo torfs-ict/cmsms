@@ -1,0 +1,28 @@
+- name: PHP Pecl packages | Install prerequisites
+  apt: pkg="php7.0-dev" state=present
+  when: php7.pecl is defined
+
+- name: PHP Pecl packages | Install packages
+  shell: echo "\n\n\n\n\n\n\n\n\n" | pecl install {{ item }}
+  register: pecl_result
+  changed_when: "'already installed' not in pecl_result.stdout"
+  failed_when: "pecl_result.stderr or ('ERROR' in pecl_result.stdout)"
+  with_items: "{{ php7.pecl }}"
+  when: php7.pecl is defined
+
+- name: PHP Pecl packages | Create extension .ini files
+  template: >
+    src="extension.tpl"
+    dest="/etc/php/7.0/mods-available/{{ item }}.ini"
+    owner="root"
+    group="root"
+    mode=0644
+  with_items: "{{ php7.pecl }}"
+  when: php7.pecl is defined
+
+- name: PHP Pecl packages | Enable extensions
+  shell: phpenmod {{ item }}
+  with_items: "{{ php7.pecl }}"
+  when: php7.pecl is defined
+  notify:
+    - restart php7-fpm

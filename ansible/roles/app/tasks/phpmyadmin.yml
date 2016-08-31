@@ -1,0 +1,12 @@
+---
+- name: Install phpMyAdmin
+  shell: composer create-project phpmyadmin/phpmyadmin --repository-url=https://www.phpmyadmin.net/packages.json --no-dev chdir=/vagrant/cms
+  become: yes
+  become_user: vagrant
+  ignore_errors: true
+
+- name: Create phpMyAdmin configuration file
+  file: path=/vagrant/cms/phpmyadmin/config.inc.php state=touch
+
+- name: Configure phpMyAdmin
+  copy: src=phpmyadmin.php dest=/vagrant/cms/phpmyadmin/config.inc.php force=yes

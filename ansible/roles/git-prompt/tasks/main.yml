@@ -1,0 +1,14 @@
+- name: Git bash prompt | Install completion script
+  copy:
+    src=git-prompt.sh
+    dest=/usr/share/bash-completion/completions/git-prompt.sh
+    owner=root group=root mode=0644
+
+- name: Git bash prompt | Set prompt in profile
+  copy:
+    src=files/profile.sh
+    dest=/etc/profile.d/git-prompt.sh
+    owner=root group=root mode=0644
+
+- name: Git bash prompt | Add prompt to .bashrc
+  shell: echo ". /etc/profile.d/git-prompt.sh" >> /home/vagrant/.bashrc

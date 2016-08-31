@@ -1,0 +1,13 @@
+---
+- name: Turn on PHP-FPM error logging
+  lineinfile: dest=/etc/php/7.0/fpm/pool.d/www.conf regexp="^catch_workers_output" insertafter="^;catch_workers_output" line="catch_workers_output = yes"
+
+- name: Create our extra .ini file
+  file: path=/etc/php/7.0/mods-available/cmsms.ini state=touch
+
+- name: Copy our extra .ini file
+  copy: src=files/cmsms.ini dest=/etc/php/7.0/mods-available/cmsms.ini
+
+- name: Enable our extra .ini file
+  shell: phpenmod cmsms
+  notify: restart php7-fpm

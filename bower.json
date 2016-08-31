@@ -1,0 +1,20 @@
+{
+  "name": "cmsms",
+  "description": "CMS Made Simple development environment",
+  "main": "",
+  "authors": [
+    "Kristof Torfs <kristof@torfs.org>"
+  ],
+  "license": "MIT",
+  "keywords": ["cms", "cmsms", "CMS Made Simple", "vagrant", "box", "development", "dev"],
+  "homepage": "http://www.cmsmadesimple.org",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "cms/vendor/bower",
+    "test",
+    "tests"
+  ]
+}

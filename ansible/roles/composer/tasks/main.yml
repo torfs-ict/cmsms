@@ -1,0 +1,20 @@
+- name: Composer | Install application
+  shell: curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer creates=/usr/local/bin/composer
+
+- name: Composer | Install bash completion
+  get_url:
+    url=https://raw.githubusercontent.com/iArren/composer-bash-completion/master/composer
+    dest=/usr/share/bash-completion/completions/composer
+    owner=root group=root mode=0644
+
+- name: Composer | Add bin directory to $PATH
+  lineinfile: dest=/etc/environment state=present backrefs=yes regexp='PATH=(["]*)((?!.*?{{ item }}).*?)(["]*)$' line="PATH=\1\2:{{ item }}\3"
+  with_items:
+    - "~/.composer/vendor/bin"
+
+- name: Ensure user composer directory exists.
+  file:
+    path: "/home/vagrant/.composer"
+    owner: "vagrant"
+    group: "vagrant"
+    state: directory

@@ -1,0 +1,27 @@
+---
+- name: Update apt
+  apt: update_cache=yes
+
+- name: Install System Packages
+  apt: pkg={{ item }} state=latest
+  with_items:
+    - curl
+    - wget
+    - python-software-properties
+
+- name: Install Extra Packages
+  apt: pkg={{ item }} state=latest
+  with_items: "{{ server.packages }}"
+  when: server.packages is defined
+
+- name: Configure the timezone
+  template: src=timezone.tpl dest=/etc/timezone
+
+- name: More Configure the timezone
+  file: src=/usr/share/zoneinfo/{{server.timezone}} dest=/etc/localtime state=link force=yes backup=yes
+
+- name: Set default system language pack
+  shell: locale-gen {{server.locale}}
+
+- name: Set LC_ALL variable
+  lineinfile: regexp="^LC_ALL=" line="LC_ALL=\"en_US.UTF-8\"" dest="/etc/default/locale"

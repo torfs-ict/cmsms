@@ -1,0 +1,35 @@
+---
+- name: Download xDebug
+  get_url:
+    url: "https://xdebug.org/files/xdebug-2.4.0.tgz"
+    dest: "/tmp/xdebug-2.4.0.tgz"
+
+- name: Untar xDebug
+  unarchive:
+    src: "/tmp/xdebug-2.4.0.tgz"
+    dest: "/tmp"
+    copy: no
+
+- name: Build xDebug
+  shell: >
+    {{ item }}
+    chdir=/tmp/xdebug-2.4.0
+  with_items:
+    - phpize
+    - ./configure
+    - make
+    - make install
+
+- name: Get debugging machine IP address
+  shell: netstat -rn | grep "^0.0.0.0 " | cut -d " " -f10
+  register: xdebug_ip
+
+- name: Configure xDebug
+  template: dest=/etc/php/7.0/mods-available/xdebug.ini src=xdebug.ini force=yes
+
+- name: Create logs directory
+  file: state=directory path=/vagrant/logs
+
+- name: Enable xDebug
+  shell: phpenmod -s fpm xdebug
+  notify: restart php7-fpm

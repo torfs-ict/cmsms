@@ -1,0 +1,5 @@
+-
+    hosts: development
+    become: true
+    vars_files: [vars.yml]
+    roles: [server, vagrant_local, git-prompt, php7, composer, nginx, mysql, app]

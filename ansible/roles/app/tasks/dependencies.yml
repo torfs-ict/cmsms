@@ -1,0 +1,16 @@
+---
+# Install all dependencies required by our application
+- name: Create directories for dependencies
+  file: state=directory path=/vagrant/cms/vendor/{{ item }} recurse=yes
+  with_items:
+    - bower
+    - composer
+
+- name: Install dependencies
+  become: yes
+  become_user: "vagrant"
+  shell: "{{ item }} install chdir=/vagrant"
+  ignore_errors: yes
+  with_items:
+    - bower
+    - composer
