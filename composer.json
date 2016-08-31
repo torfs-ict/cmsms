@@ -16,8 +16,7 @@
         "vendor-dir": "cms/vendor"
     },
     "suggest": {
-        "torfs-ict/cmsms-netdesign": "^1.0.0",
-        "torfs-ict/cmsms-google-maps": "^1.0.0"
+        "torfs-ict/cmsms-google-maps": "Google Maps module"
     },
     "require-dev": {
         "composer/composer": "^1.2",
