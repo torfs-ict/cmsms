@@ -13,7 +13,6 @@ class Composer {
         $package = static::GetPackageFromEvent($event);
         $io = $event->getIO();
         $bower = static::GetBowerPackages($package);
-        $pwd = dirname(dirname($event->getComposer()->getConfig()->get('vendor-dir')));
         foreach($bower as $item => $version) {
             $event->getIO()->write(sprintf('Installing bower dependency <comment>%s</comment> version <comment>%s</comment> for package <info>%s</info>... ', $item, $version, $package->getName()), false);
             $result = null;
