@@ -18,12 +18,68 @@ It also provides a Vagrant box for easy setup of a development environment.
 
 ### Developing modules
 
-TODO: Finish this section
+All modules (in development) should be put in the `modules` directory of the development environment and have a valid
+`composer.json` file as you can see below in the example taken from the [Google Maps module](https://github.com/torfs-ict/cmsms-google-maps).
 
-### Developing websites
+```json
+{
+    "name": "torfs-ict/cmsms-google-maps",
+    "description": "Google Maps module for CMS Made Simple",
+    "version": "1.0.0",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kristof Torfs",
+            "email": "kristof@torfs.org"
+        }
+    ],
+    "require": {
+        "torfs-ict/cmsms": "^2.1"
+    },
+    "extra": {
+        "cmsms": {
+            "module": true,
+            "name": "GoogleMaps",
+            "bower": {
+                "gmaps": "~0.4.22",
+                "hint.css": "^2.3.2"
+            }
+        }
+    }
+}
+```
 
-TODO: Finish this section
+#### Composer.json requirements
+
+1. The version must be set.
+2. At least one author must be set.
+3. The `extra/cmsms` section must be defined.
+    - The `module` field must be set to TRUE, so our dev environment knows it should treat it as a module when installing.
+    - The `name` field must be set to the actual module name.
+    - The `bower` field contains the Bower package requirements (optional). 
+      These will automatically be installed when installing/updating the composer package of your module.
+
+#### Generating a new module
+
+1. Create the module directory and change to that directory.
+2. Run `php ../../src/Module.php`
+
+#### Install module in the development environment
+
+1. Make sure your module directory is a Git repository.
+2. Add the VCS to the repositories in the development environment composer.json e.g.
+    ```json
+    "repositories": [{
+        "type": "vcs",
+        "url": "modules/GoogleMaps"
+    }]
+    ```
+3. Run `composer update` in the root of the development environment.
+
+_Note: if you generated the module with our script, you can skip steps 1 & 2._
 
 ## Deploying a completed project
 
-TODO: Finish this section
+1. Use the Composer `create-project` command as when setting up the development environment.
+2. Make sure the webroot of points to the `cms` directory.
+3. Run `composer require` for each module you need.
