@@ -15,10 +15,9 @@
     "config": {
         "vendor-dir": "cms/vendor"
     },
-    "suggests": {
+    "suggest": {
         "torfs-ict/cmsms-netdesign": "^1.0.0",
-        "torfs-ict/cmsms-google-maps": "^1.0.0",
-        "torfs-ict/cmsms-entity-manager": "dev-master"
+        "torfs-ict/cmsms-google-maps": "^1.0.0"
     },
     "require-dev": {
         "composer/composer": "^1.2",
@@ -31,9 +30,5 @@
         "post-package-install": "CMSMS\\Composer::PostPackageInstall",
         "post-package-uninstall": "CMSMS\\Composer::PostPackageUninstall",
         "post-package-update": "CMSMS\\Composer::PostPackageUpdate"
-    },
-    "repositories": [{
-        "type": "vcs",
-        "url": "modules/EntityManager"
     }]
 }
