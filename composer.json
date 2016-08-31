@@ -29,5 +29,5 @@
         "post-package-install": "CMSMS\\Composer::PostPackageInstall",
         "post-package-uninstall": "CMSMS\\Composer::PostPackageUninstall",
         "post-package-update": "CMSMS\\Composer::PostPackageUpdate"
-    }]
+    }
 }
