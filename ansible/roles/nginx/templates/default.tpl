@@ -4,6 +4,7 @@ server {
     root {{ nginx.docroot }};
     index index.html index.php;
     sendfile off;
+    client_max_body_size 200M;
 
     server_name {{ vagrant_local.vm.ip }};
 
