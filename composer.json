@@ -16,6 +16,8 @@
         "vendor-dir": "cms/vendor"
     },
     "suggest": {
+        "torfs-ict/cmsms-netdesign": "NetDesign module",
+        "torfs-ict/cmsms-entity-manager": "Entity Manager module",
         "torfs-ict/cmsms-google-maps": "Google Maps module"
     },
     "require-dev": {
