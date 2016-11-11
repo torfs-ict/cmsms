@@ -10,6 +10,11 @@ It also provides a Vagrant box for easy setup of a development environment.
 - Create a composer project: `composer create-project torfs-ict/cmsms <path>`.
 - Run `vagrant up` in the created project.
 - Browse to http://192.168.33.99/install and follow the CMSMS installation procedure.
+- Include the Composer autoloader in the CMSMS `config.php` file:
+
+```php
+require_once(__DIR__ . '/vendor/autoload.php');
+```
 
 ### Trivia
 
@@ -81,7 +86,8 @@ _Note: if you generated the module with our script, you can skip steps 1 & 2._
 ## Deploying a completed project
 
 1. Use the Composer `create-project` command as when setting up the development environment.
-2. Make sure the webroot of points to the `cms` directory.
+2. Make sure the webroot of your virtual host points to the `cms` directory.
 3. Run `composer require` for each module you need.
-4. Navigate your browser to the install directory and complete the CMS Made Simple installation.
-5. Remove the install directory.
+4. Include the Composer autoloader in the CMSMS `config.php` file: `require_once(__DIR__ . '/vendor/autoload.php');`
+5. Navigate your browser to the install directory and complete the CMS Made Simple installation.
+6. Remove the install directory.
