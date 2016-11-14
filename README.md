@@ -93,7 +93,7 @@ _Note: if you generated the module with our script, you can skip steps 1 & 2._
 
 1. Use the Composer `create-project` command as when setting up the development environment.
 2. Make sure the webroot of your virtual host points to the `cms` directory.
-3. Run `composer require` for each module you need.
+3. Navigate your browser to the install directory and complete the CMS Made Simple installation.
 4. Include the Composer autoloader in the CMSMS `config.php` file: `require_once(__DIR__ . '/vendor/autoload.php');`
-5. Navigate your browser to the install directory and complete the CMS Made Simple installation.
-6. Remove the install directory.
+5. Remove the install directory.
+6. Run `composer require` for each module you need.
