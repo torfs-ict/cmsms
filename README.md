@@ -75,11 +75,17 @@ All modules (in development) should be put in the `modules` directory of the dev
 2. Add the VCS to the repositories in the development environment composer.json e.g.
     ```json
     "repositories": [{
-        "type": "vcs",
+        "type": "path",
         "url": "modules/GoogleMaps"
     }]
     ```
-3. Run `composer update` in the root of the development environment.
+3. Add the module as a requirement in composer.json e.g.
+    ```json
+    "requires": {
+        "torfs-ict/cmsms-google-maps": "*"
+    }
+    ```
+4. Run `composer update` in the root of the development environment.
 
 _Note: if you generated the module with our script, you can skip steps 1 & 2._
 

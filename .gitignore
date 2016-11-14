@@ -3,6 +3,7 @@ logs/*
 !logs/.dummy
 cms/*
 !cms/install
+/addons
 /modules
 /sites
 
