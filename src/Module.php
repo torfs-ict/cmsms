@@ -98,6 +98,6 @@ if (!is_array($json)) {
     exit(4);
 }
 if (!array_key_exists('repositories', $json) || !is_array($json['repositories'])) $json['repositories'] = [];
-$json['repositories'][] = ['type' => 'vcs', 'url' => sprintf('modules/%s', basename(getcwd()))];
+$json['repositories'][] = ['type' => 'path', 'url' => sprintf('modules/%s', basename(getcwd()))];
 file_put_contents($composer, json_encode($json, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
 echo "{$green}DONE{$green}{$reset}\n";
