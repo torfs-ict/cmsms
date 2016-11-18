@@ -20,6 +20,7 @@
         "torfs-ict/cmsms-entity-manager": "Entity Manager module",
         "torfs-ict/cmsms-google-maps": "Google Maps module",
         "torfs-ict/cmsms-bootstrap-form": "Bootstrap Form module",
+        "torfs-ict/cmsms-bootstrap-seo": "Search engine optimization module",
         "torfs-ict/cmsms-twig": "Twig addon"
     },
     "require-dev": {
