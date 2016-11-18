@@ -2,7 +2,7 @@
     "name": "torfs-ict/cmsms",
     "description": "CMS Made Simple",
     "license": "MIT",
-    "version": "2.1.5.2",
+    "version": "2.1.5.3",
     "type": "project",
     "keywords": ["cms", "cmsms", "CMS Made Simple", "vagrant", "box", "development", "dev", "composer", "bower"],
     "homepage": "http://www.cmsmadesimple.org",
@@ -20,6 +20,7 @@
         "torfs-ict/cmsms-entity-manager": "Entity Manager module",
         "torfs-ict/cmsms-google-maps": "Google Maps module",
         "torfs-ict/cmsms-bootstrap-form": "Bootstrap Form module",
+        "torfs-ict/cmsms-bootstrap-seo": "Search engine optimization module",
         "torfs-ict/cmsms-twig": "Twig addon"
     },
     "require-dev": {
