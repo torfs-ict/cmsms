@@ -6,6 +6,7 @@
         <entryData>
           <resourceRoots>
             <path value="file://$PROJECT_DIR$/cms" />
+            <path value="file://$PROJECT_DIR$/cms/netdesign/bpprojecten.be" />
           </resourceRoots>
         </entryData>
       </entry>
