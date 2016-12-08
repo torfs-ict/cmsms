@@ -75,10 +75,11 @@ class Composer {
         $io = $event->getIO();
         $io->write(sprintf('Installing <comment>module symlink</comment> for package <info>%s</info>... ', $package->getName()), false);
         $module = static::GetModuleName($package);
-        $target = $event->getComposer()->getInstallationManager()->getInstallPath($package);
+        $target = $event->getComposer()->getConfig()->get('vendor-dir') . DIRECTORY_SEPARATOR . $package->getName();
         $link = sprintf('%s/modules/%s', dirname($event->getComposer()->getConfig()->get('vendor-dir')), $module);
         try {
             $ret = symlink($target, $link);
+            $io->writeError('<comment>symlinked</comment>... ', false);
         } catch (\Exception $e) {
             $ret = false;
         }

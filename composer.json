@@ -38,15 +38,15 @@
         "url": "addons/Twig"
     }],
     "require": {
+        "composer/composer": "^1.2",
         "torfs-ict/cmsms-netdesign": "*",
         "torfs-ict/cmsms-entity-manager": "*",
         "torfs-ict/cmsms-google-maps": "*",
-        "torfs-ict/cmsms-bootstrap-form": "*",
         "torfs-ict/cmsms-seo": "*",
-        "torfs-ict/cmsms-twig": "*"
+        "torfs-ict/cmsms-twig": "*",
+        "torfs-ict/cmsms-bootstrap-form": "*"
     },
     "require-dev": {
-        "composer/composer": "^1.2",
         "composer/semver": "^1.4"
     },
     "scripts": {
