@@ -2,7 +2,7 @@
     "name": "torfs-ict/cmsms",
     "description": "CMS Made Simple",
     "license": "MIT",
-    "version": "2.1.5.3",
+    "version": "2.1.5.4",
     "type": "project",
     "keywords": ["cms", "cmsms", "CMS Made Simple", "vagrant", "box", "development", "dev", "composer", "bower"],
     "homepage": "http://www.cmsmadesimple.org",
