@@ -5,6 +5,8 @@ server {
     index index.html index.php;
     sendfile off;
     client_max_body_size 200M;
+    error_log {{ php7.logdir }}/nginx.error.log;
+    access_log {{ php7.logdir }}/vagrant/logs/nginx.access.log;
 
     server_name {{ vagrant_local.vm.ip }};
 
