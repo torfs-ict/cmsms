@@ -6,7 +6,10 @@ use Composer\DependencyResolver\Operation\InstallOperation;
 use Composer\DependencyResolver\Operation\UninstallOperation;
 use Composer\DependencyResolver\Operation\UpdateOperation;
 use Composer\Installer\PackageEvent;
+use Composer\Json\JsonFile;
+use Composer\Json\JsonManipulator;
 use Composer\Package\PackageInterface;
+use Composer\Script\Event;
 
 class Composer {
     protected static function Bower(PackageEvent $event) {
@@ -72,10 +75,11 @@ class Composer {
         $io = $event->getIO();
         $io->write(sprintf('Installing <comment>module symlink</comment> for package <info>%s</info>... ', $package->getName()), false);
         $module = static::GetModuleName($package);
-        $target = $event->getComposer()->getInstallationManager()->getInstallPath($package);
+        $target = $event->getComposer()->getConfig()->get('vendor-dir') . DIRECTORY_SEPARATOR . $package->getName();
         $link = sprintf('%s/modules/%s', dirname($event->getComposer()->getConfig()->get('vendor-dir')), $module);
         try {
             $ret = symlink($target, $link);
+            $io->writeError('<comment>symlinked</comment>... ', false);
         } catch (\Exception $e) {
             $ret = false;
         }
@@ -115,4 +119,19 @@ class Composer {
         if (!static::IsModule($event)) return;
         static::Bower($event);
     }
+
+    public static function PostCreateProjectCmd(Event $event) {
+        static::PostRootPackageInstall($event);
+    }
+
+    public static function PostRootPackageInstall(Event $event) {
+        $path = realpath(dirname(__DIR__) . '/composer.json');
+        $json = new JsonFile($path);
+        $content = new JsonManipulator(file_get_contents($json->getPath()));
+        $content->removeMainKey('repositories');
+        $content->removeMainKey('require');
+        $content->removeMainKey('require-dev');
+        file_put_contents($json->getPath(), $content->getContents());
+    }
+
 }

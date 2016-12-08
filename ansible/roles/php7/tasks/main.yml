@@ -12,6 +12,19 @@
     - php7.0-cli
     - php7.0-fpm
 
+- name: Configure PHP
+  template: >
+    src="cmsms.ini"
+    dest="/etc/php/7.0/mods-available/cmsms.ini"
+    owner="root"
+    group="root"
+    mode=0644
+
+- name: Enable custom PHP configuration
+  shell: phpenmod cmsms
+  notify:
+    - restart php7-fpm
+
 - name: Install PHP extensions
   apt: pkg={{ item }} state=latest
   with_items: "{{ php7.extensions }}"

@@ -20,6 +20,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 - The MySQL root password, username, user password and database name are all `cmsms`.
 - PHPMyAdmin gets installed in the Vagrant box and is accessible at http://192.168.33.99/phpmyadmin.
+- Running Composer in the development environment must __ALWAYS__ be done in the Vagrant box.
 
 ### Developing modules
 

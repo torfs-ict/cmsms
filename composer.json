@@ -2,7 +2,7 @@
     "name": "torfs-ict/cmsms",
     "description": "CMS Made Simple",
     "license": "MIT",
-    "version": "2.1.5.3",
+    "version": "2.1.5.4",
     "type": "project",
     "keywords": ["cms", "cmsms", "CMS Made Simple", "vagrant", "box", "development", "dev", "composer", "bower"],
     "homepage": "http://www.cmsmadesimple.org",
@@ -15,24 +15,47 @@
     "config": {
         "vendor-dir": "cms/vendor"
     },
-    "suggest": {
-        "torfs-ict/cmsms-netdesign": "NetDesign module",
-        "torfs-ict/cmsms-entity-manager": "Entity Manager module",
-        "torfs-ict/cmsms-google-maps": "Google Maps module",
-        "torfs-ict/cmsms-bootstrap-form": "Bootstrap Form module",
-        "torfs-ict/cmsms-bootstrap-seo": "Search engine optimization module",
-        "torfs-ict/cmsms-twig": "Twig addon"
-    },
-    "require-dev": {
-        "composer/composer": "^1.2",
-        "composer/semver": "^1.4"
-    },
     "autoload": {
         "psr-4": { "CMSMS\\" : "src/" }
+    },
+    "repositories": [{
+        "type": "path",
+        "url": "modules/BootstrapForm"
+    },{
+        "type": "path",
+        "url": "modules/EntityManager"
+    },{
+        "type": "path",
+        "url": "modules/GoogleMaps"
+    },{
+        "type": "path",
+        "url": "modules/NetDesign"
+    },{
+        "type": "path",
+        "url": "modules/SEO"
+    },{
+        "type": "path",
+        "url": "addons/Twig"
+    }],
+    "require": {
+        "composer/composer": "^1.2",
+        "torfs-ict/cmsms-netdesign": "*",
+        "torfs-ict/cmsms-entity-manager": "*",
+        "torfs-ict/cmsms-google-maps": "*",
+        "torfs-ict/cmsms-seo": "*",
+        "torfs-ict/cmsms-twig": "*",
+        "torfs-ict/cmsms-bootstrap-form": "*"
+    },
+    "require-dev": {
+        "composer/semver": "^1.4"
     },
     "scripts": {
         "post-package-install": "CMSMS\\Composer::PostPackageInstall",
         "post-package-uninstall": "CMSMS\\Composer::PostPackageUninstall",
-        "post-package-update": "CMSMS\\Composer::PostPackageUpdate"
+        "post-package-update": "CMSMS\\Composer::PostPackageUpdate",
+        "post-root-package-install": [
+            "CMSMS\\Composer::PostRootPackageInstall",
+            "@composer update"
+        ]
     }
 }

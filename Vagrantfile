@@ -21,6 +21,10 @@ Vagrant.configure("2") do |config|
             "--natdnshostresolver1", "on",
             "--cpus", 1,
         ]
+        v.customize [
+            'setextradata', :id,
+            "VBoxInternal2/SharedFoldersEnableSymlinksCreate//vagrant", '1'
+        ]
     end
 
     config.vm.box = "geerlingguy/ubuntu1604"
