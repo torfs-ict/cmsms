@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/cms/vendor/bower/PACE" />
+      <excludeFolder url="file://$MODULE_DIR$/cms/vendor/torfs-ict" />
+      <excludeFolder url="file://$MODULE_DIR$/sites/skeleton" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library name="PHARS">
+        <CLASSES>
+          <root url="phar://$MODULE_DIR$/cms/vendor/twig/twig/test/Twig/Tests/Loader/Fixtures/phar/phar-sample.phar/" />
+        </CLASSES>
+        <SOURCES>
+          <root url="phar://$MODULE_DIR$/cms/vendor/twig/twig/test/Twig/Tests/Loader/Fixtures/phar/phar-sample.phar/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="PHP" type="php">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/cms/vendor/bower/PACE" />
+          <root url="file://$MODULE_DIR$/cms/vendor/torfs-ict/cmsms-bootstrap-form" />
+          <root url="file://$MODULE_DIR$/cms/vendor/torfs-ict/cmsms-entity-manager" />
+          <root url="file://$MODULE_DIR$/cms/vendor/torfs-ict/cmsms-google-maps" />
+          <root url="file://$MODULE_DIR$/cms/vendor/torfs-ict/cmsms-netdesign" />
+          <root url="file://$MODULE_DIR$/cms/vendor/torfs-ict/cmsms-seo" />
+          <root url="file://$MODULE_DIR$/cms/vendor/torfs-ict/cmsms-twig" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/cms/vendor/bower/PACE" />
+          <root url="file://$MODULE_DIR$/cms/vendor/torfs-ict/cmsms-bootstrap-form" />
+          <root url="file://$MODULE_DIR$/cms/vendor/torfs-ict/cmsms-entity-manager" />
+          <root url="file://$MODULE_DIR$/cms/vendor/torfs-ict/cmsms-google-maps" />
+          <root url="file://$MODULE_DIR$/cms/vendor/torfs-ict/cmsms-netdesign" />
+          <root url="file://$MODULE_DIR$/cms/vendor/torfs-ict/cmsms-seo" />
+          <root url="file://$MODULE_DIR$/cms/vendor/torfs-ict/cmsms-twig" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="PHP Runtime" type="php">
+        <CLASSES>
+          <root url="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard" />
+        </CLASSES>
+        <SOURCES>
+          <root url="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+  </component>
+</module>
