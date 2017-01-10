@@ -20,7 +20,7 @@ class Composer {
             $event->getIO()->write(sprintf('Installing bower dependency <comment>%s</comment> version <comment>%s</comment> for package <info>%s</info>... ', $item, $version, $package->getName()), false);
             $result = null;
             $output = null;
-            exec("bower install $item#$version", $output, $result);
+            exec("bower --allow-root install $item#$version", $output, $result);
             if ($result == 0) $io->write('<info>OK</info>');
             else $io->write('<error>Failed</error>');
         }
